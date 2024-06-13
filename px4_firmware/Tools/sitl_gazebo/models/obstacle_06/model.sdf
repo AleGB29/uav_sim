@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="obstacle_06">
+    <static>true</static>
+
+    <link name="link_06_1">
+      <pose frame=''>1.05 -1.05 0.40 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>2.10 2.10 0.80</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_06_1">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2.10 2.10 0.80</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_06/materials/scripts</uri>
+			<uri>model://obstacle_06/materials/textures</uri>
+			<name>repeated_06</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+
+    <link name="link_06_2">
+      <pose frame=''>1.55 -1.55 1.4 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.10 1.10 1.20</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_06_2">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.10 1.10 1.20</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_06/materials/scripts</uri>
+			<uri>model://obstacle_06/materials/textures</uri>
+			<name>repeated_06</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+  </model>
+</sdf>

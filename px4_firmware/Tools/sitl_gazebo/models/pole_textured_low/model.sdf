@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="pole_textured_low">
+    <static>true</static>
+
+    <link name="link_pole_textured_low">
+      <pose frame=''>-0.25 0.25 1.1 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>0.50 0.50 2.2</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_pole_textured_low">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.50 0.50 2.2</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://pole_textured_low/materials/scripts</uri>
+			<uri>model://pole_textured_low/materials/textures</uri>
+			<name>repeated_pole_textured_low</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+     </link>
+  </model>
+</sdf>

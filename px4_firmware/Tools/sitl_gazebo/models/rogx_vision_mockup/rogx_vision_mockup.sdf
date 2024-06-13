@@ -1,0 +1,14 @@
+<sdf version='1.6'>
+  <model name='rogx_vision_mockup'>
+    <include>
+      <uri>model://rogx</uri>
+    </include>
+    <plugin name="vision_plugin" filename="libgazebo_vision_plugin.so">
+        <robotNamespace></robotNamespace>
+        <pubRate>30</pubRate>
+        <randomWalk>0.1</randomWalk>
+        <noiseDensity>0.01</noiseDensity>
+        <corellationTime>60.0</corellationTime>
+    </plugin>
+  </model>
+</sdf>

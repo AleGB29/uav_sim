@@ -1,0 +1,195 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="ugv_4k">
+  
+
+  
+        <link name='chassis'>
+          <pose>0 0 .115 0 0 0</pose>
+          
+          <inertial>
+            <mass value="23" />
+	      <origin xyz="0 0 .180" />
+	      <inertia ixx="23.0" ixy="0.0" ixz="0.0"
+		iyy="23.0" iyz="0.0"
+		izz="23.0" />
+	   </inertial>
+          
+          <collision name='collision'>
+            <geometry>
+              <box>
+                <size>.600 .380 .130</size>
+              </box>
+            </geometry>
+          </collision>
+
+          <visual name='visual'>
+            <geometry>
+              <box>
+                <size>.600 .380 .130</size>
+              </box>
+            </geometry>
+          </visual>
+      </link>
+      <link name="left_front_wheel">
+        <pose>0.3 0.240 0.08 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.08</radius>
+              <length>.1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.08</radius>
+              <length>.1</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+      
+      <link name="left_rear_wheel">
+        <pose>-0.3 0.240 0.08 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.08</radius>
+              <length>.1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.08</radius>
+              <length>.1</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="right_front_wheel">
+        <pose>0.3 -0.240 0.08 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.08</radius>
+              <length>.1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.08</radius>
+              <length>.1</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>  
+      
+      <link name="right_rear_wheel">
+        <pose>-0.3 -0.240 0.08 0 1.5707 1.5707</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>.08</radius>
+              <length>.1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>.08</radius>
+              <length>.1</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>  
+      
+      <joint type="revolute" name="left_front_wheel_hinge">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>left_front_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+      
+      <joint type="revolute" name="left_rear_wheel_hinge">
+        <pose>0 0 -0.03 0 0 0</pose>
+        <child>left_rear_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+
+      <joint type="revolute" name="right_front_wheel_hinge">
+        <pose>0 0 0.03 0 0 0</pose>
+        <child>right_front_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+      
+      <joint type="revolute" name="right_rear_wheel_hinge">
+        <pose>0 0 0.03 0 0 0</pose>
+        <child>right_rear_wheel</child>
+        <parent>chassis</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+      
+      <include>
+      <uri>model://velodyne_VLP16</uri>
+      <pose>0 0 .28 0 0 0</pose>
+    </include>
+    <joint name="lidar_joint" type="fixed">
+      <child>lidar::link</child>
+      <parent>chassis</parent>
+    </joint>
+      
+     <include>
+      <uri>model://RGB_camera_4k</uri>
+      <name>frontal_camera</name>
+      <pose>0.03 0 .2 0 0 0</pose>
+    </include>
+    <joint name="frontal_camera_joint" type="fixed">
+      <child>frontal_camera::link</child>
+      <parent>chassis</parent>
+    </joint>
+    
+    <include>
+      <uri>model://RGB_camera_4k</uri>
+      <name>right_rear_camera</name>
+      <pose>-0.03 0.03 .2 0 0 2.3561</pose>
+    </include>
+    <joint name="right_rear_camera_joint" type="fixed">
+      <child>right_rear_camera::link</child>
+      <parent>chassis</parent>
+    </joint>
+    
+    <include>
+      <uri>model://RGB_camera_4k</uri>
+      <name>left_rear_camera</name>
+      <pose>-0.03 -0.03 .2 0 0 -2.35619</pose>
+    </include>
+    <joint name="left_rear_camera_joint" type="fixed">
+      <child>left_rear_camera::link</child>
+      <parent>chassis</parent>
+    </joint>
+
+    <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>/ugv/cmd_vel</commandTopic>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>chassis</robotBaseFrame>
+    </plugin>
+  </model>
+</sdf>

@@ -1,0 +1,54 @@
+#!/bin/sh
+#
+# @name ROG-X by ANT-X
+#
+# @type Octorotor Coaxial
+# @class Copter
+#
+# @output MAIN1 motor 1
+# @output MAIN2 motor 2
+# @output MAIN3 motor 3
+# @output MAIN4 motor 4
+# @output MAIN5 motor 5
+# @output MAIN6 motor 6
+# @output MAIN7 motor 7
+# @output MAIN8 motor 8
+#
+# @maintainer Mattia Giurato <mattia@antx.it>
+# Copyright ANT-X, 2022
+#
+
+. ${R}/etc/init.d/rc.mc_defaults
+
+set MIXER rog_x
+
+# Set battery configuration
+param set-default BAT_N_CELLS 4
+
+# Set EKF2
+param set-default EKF2_AID_MASK 1
+
+# Set Multicopter Position Controller
+param set-default MPC_ALT_MODE 0
+param set-default MPC_THR_HOVER 0.73
+param set-default MPC_LAND_SPEED 0.5
+
+# Set Multicopter Attitude Controller
+param set-default MC_ROLL_P 9
+param set-default MC_PITCH_P 9
+param set-default MC_YAW_P 2.8
+
+# Set Multicopter Attitude-rate Controller
+param set-default MC_ROLLRATE_P 0.05
+param set-default MC_ROLLRATE_I 0.2
+param set-default MC_ROLLRATE_D 0.001
+param set-default MC_PITCHRATE_P 0.05
+param set-default MC_PITCHRATE_I 0.2
+param set-default MC_PITCHRATE_D 0.001
+param set-default MC_YAWRATE_P 0.125
+param set-default MC_YAWRATE_I 0.1
+param set-default MC_YAWRATE_D 0.0005
+
+# Set logging profile
+param set-default SDLOG_MODE 0
+param set-default SDLOG_PROFILE 27

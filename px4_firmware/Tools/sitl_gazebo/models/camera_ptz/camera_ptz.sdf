@@ -1,0 +1,192 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='camera_ptz'>
+    
+    <link name="pole_camera_link">
+      <kinematic> true </kinematic>
+      <pose frame=''>0.15 0.15 1.50 0 -0 0</pose>
+        <inertial>
+          <mass>1000</mass>
+          <inertia>
+          <ixx>4.15</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.407</iyy>
+          <iyz>0</iyz>
+          <izz>2.407</izz>
+          </inertia>
+        </inertial>
+      <collision name="pole_camera_link_collision">
+        <geometry>
+          <box>
+            <size>0.30 0.30 3.00</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="pole_camera_link_visual">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.30 0.30 3.00</size>
+          </box>
+	</geometry>
+      </visual>
+    </link>
+	
+   <link name='camera_ptz_link'>
+        <pose frame=''>0.15 -0.6 2.0 0 0.2618 -1.5708</pose>
+	<inertial>
+	  <mass>1</mass>
+	  <inertia>
+	   <ixx>1</ixx>
+	  <ixy>0</ixy>
+	  <ixz>0</ixz>
+	  <iyy>1</iyy>
+	  <iyz>0</iyz>
+	  <izz>1</izz>
+	  </inertia>
+	</inertial>
+
+	<visual name='camera_ptz_visual'>
+	  <geometry>
+	    <mesh>
+	      <uri>model://realsense_camera/meshes/realsense.dae</uri>
+	    </mesh>
+	  </geometry>
+	</visual>
+
+	<sensor name='camera_ptz_sensor' type='camera'>
+	  <camera name='__default__'>
+	    <horizontal_fov>1.08</horizontal_fov>
+	    <!-- about 62 degrees -->
+	    <image>
+	      <width>1920</width>
+	      <height>1080</height>
+	    </image>
+	    <clip>
+	      <near>0.1</near>
+	      <far>100</far>
+	    </clip>
+	  </camera>
+	  <always_on>1</always_on>
+	  <update_rate>30</update_rate>
+	  <visualize>1</visualize>
+	  
+	  <plugin name='camera_ptz_sensor_plugin' filename='libgazebo_ros_camera.so'>
+	    <!--robotNamespace></robotNamespace-->
+	    <alwaysOn>true</alwaysOn>
+	    <imageTopicName>image_raw</imageTopicName>
+	    <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+	    <updateRate>30.0</updateRate>
+	    <cameraName>camera_ptz</cameraName>
+	    <frameName>camera_ptz_link</frameName>
+	    <distortionK1>0.0</distortionK1>
+	    <distortionK2>0.0</distortionK2>
+	    <distortionK3>0.0</distortionK3>
+	    <distortionT1>0.0</distortionT1>
+	    <distortionT2>0.0</distortionT2>
+	  </plugin>
+
+	</sensor>
+	<self_collide>0</self_collide>
+	<kinematic>0</kinematic>
+   </link>
+   
+   <link name='camera_ptz_pan_link'>
+        <pose frame=''>0.15 -0.6 2.0 0 0.2618 -1.5708</pose>
+	<inertial>
+	  <mass>1</mass>
+	  <inertia>
+	   <ixx>1</ixx>
+	  <ixy>0</ixy>
+	  <ixz>0</ixz>
+	  <iyy>1</iyy>
+	  <iyz>0</iyz>
+	  <izz>1</izz>
+	  </inertia>
+	</inertial>
+	
+     <collision name="camera_ptz_pan_link_collision">
+        <geometry>
+          <box>
+            <size>0.30 0.30 3.00</size>
+          </box>
+        </geometry>
+      </collision>
+	
+      <visual name="camera_ptz_pan_link_visual">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+	</geometry>
+      </visual>
+   </link>
+
+    <joint name="pole_to_camera_joint_z" type="revolute">
+      <parent>camera_ptz::pole_camera_link</parent>
+      <child>camera_ptz::camera_ptz_pan_link</child>
+          <axis>
+            	<xyz>0 0 1</xyz>
+                <limit>
+                    <lower>-1.5708</lower>
+                    <upper>1.5708</upper>
+                </limit>
+		<dynamics>
+		  <spring_reference>0.1</spring_reference>
+		  <spring_stiffness>2</spring_stiffness>
+		  <friction>0.5</friction>
+		  <damping>1</damping>
+		</dynamics>
+		<use_parent_model_frame>1</use_parent_model_frame>
+          </axis>
+    </joint>
+    
+    <joint name="pole_to_camera_joint_x" type="revolute">
+      <parent>camera_ptz::camera_ptz_pan_link</parent>
+      <child>camera_ptz::camera_ptz_link</child>
+          <axis>
+            	<xyz>1 0 0</xyz>
+                <limit>
+                    <lower>-1.5708</lower>
+                    <upper>1.5708</upper>
+                </limit>
+		<dynamics>
+		  <spring_reference>0.1</spring_reference>
+		  <spring_stiffness>2</spring_stiffness>
+		  <friction>0.5</friction>
+		  <damping>1</damping>
+		</dynamics>
+		<use_parent_model_frame>1</use_parent_model_frame>
+          </axis>
+    </joint>
+    
+
+    <!--plugin name="camera_control" filename="librotate_camera_plugin.so">
+	<velocity>1</velocity>
+    </plugin-->
+    
+    <plugin name="servo_camera_plugin" filename="libgazebo_servo_camera_plugin.so">
+        <tilt_update_rate>30.0</tilt_update_rate>
+        <max_pitch_rate>30.0</max_pitch_rate>
+        <max_pitch>1.5708</max_pitch>
+        <min_pitch>-1.5708</min_pitch>
+        <max_roll_rate>30.0</max_roll_rate>
+        <max_roll>1.5708</max_roll>
+        <min_roll>-1.5708</min_roll>
+        <joint_name_pitch>pole_to_camera_joint_z</joint_name_pitch>
+        <joint_name_roll>pole_to_camera_joint_x</joint_name_roll>
+        <parent_link_pitch>pole_camera_link</parent_link_pitch>
+        <parent_link_roll>camera_ptz_pan_link</parent_link_roll>
+        <compensate_tilt_roll>0</compensate_tilt_roll>
+        <compensate_tilt_pitch>0</compensate_tilt_pitch>
+   </plugin>
+    
+    
+
+
+
+  </model>
+</sdf>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="obstacle_08">
+    <static>true</static>
+
+    <link name="link_08_1">
+      <pose frame=''>0.50 -1.00 0.95 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.00 2.00 1.90</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_08_1">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.00 2.00 1.90</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_08/materials/scripts</uri>
+			<uri>model://obstacle_08/materials/textures</uri>
+			<name>repeated_08</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+
+    <link name="link_08_2">
+      <pose frame=''>2.00 -0.50 0.95 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>2.00 1.00 1.90</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_08_2">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>2.00 1.00 1.90</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_08/materials/scripts</uri>
+			<uri>model://obstacle_08/materials/textures</uri>
+			<name>repeated_08</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+
+  </model>
+</sdf>

@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="obstacle_11">
+    <static>true</static>
+
+    <link name="link_11_1">
+      <pose frame=''>0.60 -0.35 1.50 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.20 0.70 3.00</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_11_1">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.20 0.70 3.00</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_11/materials/scripts</uri>
+			<uri>model://obstacle_11/materials/textures</uri>
+			<name>repeated_11</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+
+    <link name="link_11_2">
+      <pose frame=''>3.20 -0.35 1.50 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.20 0.70 3.00</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_11_2">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.20 0.70 3.00</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_11/materials/scripts</uri>
+			<uri>model://obstacle_11/materials/textures</uri>
+			<name>repeated_11</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+    <link name="link_11_3">
+      <pose frame=''>0.60 -2.45 1.50 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.20 0.70 3.00</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_11_3">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.20 0.70 3.00</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_11/materials/scripts</uri>
+			<uri>model://obstacle_11/materials/textures</uri>
+			<name>repeated_11</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+    <link name="link_11_4">
+      <pose frame=''>3.20 -2.45 1.50 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.20 0.70 3.00</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_11_4">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.20 0.70 3.00</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_11/materials/scripts</uri>
+			<uri>model://obstacle_11/materials/textures</uri>
+			<name>repeated_11</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+    <link name="link_11_5">
+      <pose frame=''>1.90 -0.35 2.75 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.40 0.70 0.50</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_11_5">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.40 0.70 0.50</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_11/materials/scripts</uri>
+			<uri>model://obstacle_11/materials/textures</uri>
+			<name>repeated_11</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+   <link name="link_11_6">
+      <pose frame=''>1.90 -2.45 2.75 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.40 0.70 0.50</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_11_6">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.40 0.70 0.50</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_11/materials/scripts</uri>
+			<uri>model://obstacle_11/materials/textures</uri>
+			<name>repeated_11</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+   <link name="link_11_7">
+      <pose frame=''>0.3 -1.40 2.75 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>0.60 1.40 0.50</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_11_7">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.60 1.40 0.50</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_11/materials/scripts</uri>
+			<uri>model://obstacle_11/materials/textures</uri>
+			<name>repeated_11</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+   <link name="link_11_8">
+      <pose frame=''>3.50 -1.40 2.75 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>0.60 1.40 0.50</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_11_8">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.60 1.40 0.50</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_11/materials/scripts</uri>
+			<uri>model://obstacle_11/materials/textures</uri>
+			<name>repeated_11</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+
+
+
+
+
+
+  </model>
+</sdf>

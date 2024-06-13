@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="obstacle_02">
+    <static>true</static>
+
+    <link name="link_02">
+      <pose frame=''>0.60 -0.75 0.40 0 -0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <box>
+            <size>1.20 1.50 0.80</size>
+          </box>
+        </geometry>
+      </collision>
+ 
+      <visual name="visual_02">
+	<pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>1.20 1.50 0.80</size>
+          </box>
+	</geometry>
+
+	    <material> 
+		<script>
+			<uri>model://obstacle_02/materials/scripts</uri>
+			<uri>model://obstacle_02/materials/textures</uri>
+			<name>repeated_02</name>
+		</script>
+	    </material>
+
+        
+      </visual>
+
+    </link>
+
+
+  </model>
+</sdf>

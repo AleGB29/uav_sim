@@ -1,0 +1,22 @@
+<sdf version='1.6'>
+  <model name='rogx_opt_flow'>
+    <include>
+      <uri>model://rogx</uri>
+    </include>
+    <include>
+      <uri>model://px4flow</uri>
+      <pose>0 -0.08 0.0385 0 0 0</pose>
+    </include>
+    <joint name="px4flow_joint" type="revolute">
+      <parent>rogx::base_link</parent>
+      <child>px4flow::link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+  </model>
+</sdf>

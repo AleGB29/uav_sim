@@ -1,0 +1,11 @@
+<sdf version='1.6'>
+  <model name='rogx_opt_flow_mockup'>
+    <include>
+      <uri>model://rogx</uri>
+    </include>
+    <plugin name="opticalflow_mockup_plugin" filename="libgazebo_opticalflow_mockup_plugin.so">
+        <robotNamespace></robotNamespace>
+        <pubRate>20</pubRate>
+    </plugin>
+  </model>
+</sdf>

@@ -1,0 +1,13 @@
+material Rewards
+{
+	technique
+	{
+		pass
+		{
+			texture_unit
+			{
+				texture rewards.png
+			}
+		}
+	}
+}

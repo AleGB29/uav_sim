@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# @name ROG-X by ANT-X
+#
+# @type Octorotor Coaxial
+# @class Copter
+#
+# @output MAIN1 motor 1
+# @output MAIN2 motor 2
+# @output MAIN3 motor 3
+# @output MAIN4 motor 4
+# @output MAIN5 motor 5
+# @output MAIN6 motor 6
+# @output MAIN7 motor 7
+# @output MAIN8 motor 8
+#
+# @maintainer Mattia Giurato <mattia@antx.it>
+# Copyright ANT-X, 2022
+#
+
+. ${R}etc/init.d-posix/airframes/12372_rogx
+
+param set-default EKF2_AID_MASK 2
+param set-default SENS_FLOW_ROT 6

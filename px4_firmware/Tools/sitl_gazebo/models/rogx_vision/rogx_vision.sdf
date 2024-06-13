@@ -1,0 +1,7 @@
+<sdf version='1.6'>
+  <model name='rogx_vision'>
+    <include>
+      <uri>model://rogx</uri>
+    </include>
+  </model>
+</sdf>
